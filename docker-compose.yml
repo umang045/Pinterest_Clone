@@ -6,5 +6,15 @@ services:
     ports:
       - "3000:3000"
     env_file:
-      - ./backend/env
+      - ./backend/.env
+    restart: always
+
+  client:
+    build: ./client
+    ports:
+      - "8080:80"
+    env_file:
+      - ./client/.env
+    depends_on:
+      - backend
     restart: always
