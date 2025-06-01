@@ -7,7 +7,7 @@ const LeftBar = () => {
     <div className="leftBar">
       <div className="menuIcons">
         <Link to="/" className="menuIcon">
-          <Image path="/general/logo.png" alt="" className="logo"/>
+          <Image path="/general/pintr.svg" alt="" className="logo"/>
         </Link>
         <Link to="/" className="menuIcon">
           <Image path="/general/home.svg" alt="" />

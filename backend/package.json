@@ -3,7 +3,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "node --watch --env-file=.env index.js"
+    "dev": "node --watch index.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

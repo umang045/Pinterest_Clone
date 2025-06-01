@@ -1,31 +1,30 @@
-# client/Dockerfile
+# Base image
+FROM node:18-alpine as builder
 
-# Build stage: use Node.js official image to build the app
-FROM node:18 AS builder
-
-# Set working directory inside the container
+# Set working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json (if any) to install dependencies
-COPY package*.json ./
+# Copy package files
+COPY package.*json  ./
 
-# Install dependencies based on package-lock.json for reproducible builds
-RUN npm ci
+# Install dependencies
+RUN npm install
 
-# Copy all source files into the working directory
+# Copy rest of the code
 COPY . .
 
-# Build the Vite React app for production (output in /app/dist)
+# Run build
 RUN npm run build
 
-# Production stage: use lightweight nginx image to serve the built app
+# ---- Production image ----
 FROM nginx:alpine
 
-# Copy built files from the builder stage to nginx's public folder
+# Copy build output to NGINX's web folder
 COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Expose port 80 (default HTTP port)
+# Copy default nginx config if needed (optional)
+# COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 EXPOSE 80
 
-# Start nginx in the foreground (required for container to keep running)
 CMD ["nginx", "-g", "daemon off;"]
