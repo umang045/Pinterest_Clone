@@ -11,6 +11,11 @@ This README contains step-by-step instructions and issue fixes from scratch to d
 * Docker + Docker Compose
 * Deployment: AWS EC2 (Free Tier)
 
+* 
+![Screenshot (10)](https://github.com/user-attachments/assets/2272c82d-c710-4126-8921-0c1ce71a029c)
+![Screenshot (11)](https://github.com/user-attachments/assets/1aea1e48-168e-4f65-b232-6fe262a44f02)
+![Screenshot (12)](https://github.com/user-attachments/assets/dffa16dc-5a54-4cd1-bec9-b83c669d16a1)
+
 ---
 
 ## 🧰 Prerequisites
